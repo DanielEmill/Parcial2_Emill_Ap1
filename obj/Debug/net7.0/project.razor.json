@@ -50,6 +50,80 @@
         }
       },
       {
+        "HashCode": 1821357932,
+        "Kind": "Components.Component",
+        "Name": "Parcial2_Emill.App",
+        "AssemblyName": "Parcial2_Emill",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "App"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Parcial2_Emill.App",
+          "Common.TypeNamespace": "Parcial2_Emill",
+          "Common.TypeNameIdentifier": "App"
+        }
+      },
+      {
+        "HashCode": -1159577147,
+        "Kind": "Components.Component",
+        "Name": "Parcial2_Emill.App",
+        "AssemblyName": "Parcial2_Emill",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "Parcial2_Emill.App"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Parcial2_Emill.App",
+          "Common.TypeNamespace": "Parcial2_Emill",
+          "Common.TypeNameIdentifier": "App",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": -1363980834,
+        "Kind": "Components.Component",
+        "Name": "Parcial2_Emill.Shared.NavMenu",
+        "AssemblyName": "Parcial2_Emill",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "NavMenu"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Parcial2_Emill.Shared.NavMenu",
+          "Common.TypeNamespace": "Parcial2_Emill.Shared",
+          "Common.TypeNameIdentifier": "NavMenu"
+        }
+      },
+      {
+        "HashCode": 858866157,
+        "Kind": "Components.Component",
+        "Name": "Parcial2_Emill.Shared.NavMenu",
+        "AssemblyName": "Parcial2_Emill",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "Parcial2_Emill.Shared.NavMenu"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Parcial2_Emill.Shared.NavMenu",
+          "Common.TypeNamespace": "Parcial2_Emill.Shared",
+          "Common.TypeNameIdentifier": "NavMenu",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
         "HashCode": 219363248,
         "Kind": "Components.Component",
         "Name": "Parcial2_Emill.Shared.SurveyPrompt",
@@ -211,80 +285,6 @@
           "Common.TypeNamespace": "Parcial2_Emill.Shared",
           "Common.TypeNameIdentifier": "MainLayout",
           "Components.IsSpecialKind": "Components.ChildContent",
-          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
-        }
-      },
-      {
-        "HashCode": -1363980834,
-        "Kind": "Components.Component",
-        "Name": "Parcial2_Emill.Shared.NavMenu",
-        "AssemblyName": "Parcial2_Emill",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "NavMenu"
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Parcial2_Emill.Shared.NavMenu",
-          "Common.TypeNamespace": "Parcial2_Emill.Shared",
-          "Common.TypeNameIdentifier": "NavMenu"
-        }
-      },
-      {
-        "HashCode": 858866157,
-        "Kind": "Components.Component",
-        "Name": "Parcial2_Emill.Shared.NavMenu",
-        "AssemblyName": "Parcial2_Emill",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "Parcial2_Emill.Shared.NavMenu"
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Parcial2_Emill.Shared.NavMenu",
-          "Common.TypeNamespace": "Parcial2_Emill.Shared",
-          "Common.TypeNameIdentifier": "NavMenu",
-          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
-        }
-      },
-      {
-        "HashCode": 1821357932,
-        "Kind": "Components.Component",
-        "Name": "Parcial2_Emill.App",
-        "AssemblyName": "Parcial2_Emill",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "App"
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Parcial2_Emill.App",
-          "Common.TypeNamespace": "Parcial2_Emill",
-          "Common.TypeNameIdentifier": "App"
-        }
-      },
-      {
-        "HashCode": -1159577147,
-        "Kind": "Components.Component",
-        "Name": "Parcial2_Emill.App",
-        "AssemblyName": "Parcial2_Emill",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "Parcial2_Emill.App"
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Parcial2_Emill.App",
-          "Common.TypeNamespace": "Parcial2_Emill",
-          "Common.TypeNameIdentifier": "App",
           "Components.NameMatch": "Components.FullyQualifiedNameMatch"
         }
       },
