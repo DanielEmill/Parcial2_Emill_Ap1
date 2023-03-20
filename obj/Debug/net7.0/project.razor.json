@@ -13,80 +13,6 @@
   "ProjectWorkspaceState": {
     "TagHelpers": [
       {
-        "HashCode": 1018110835,
-        "Kind": "Components.Component",
-        "Name": "Parcial2_Emill.Pages.Counter",
-        "AssemblyName": "Parcial2_Emill",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "Counter"
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Parcial2_Emill.Pages.Counter",
-          "Common.TypeNamespace": "Parcial2_Emill.Pages",
-          "Common.TypeNameIdentifier": "Counter"
-        }
-      },
-      {
-        "HashCode": -532426066,
-        "Kind": "Components.Component",
-        "Name": "Parcial2_Emill.Pages.Counter",
-        "AssemblyName": "Parcial2_Emill",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "Parcial2_Emill.Pages.Counter"
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Parcial2_Emill.Pages.Counter",
-          "Common.TypeNamespace": "Parcial2_Emill.Pages",
-          "Common.TypeNameIdentifier": "Counter",
-          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
-        }
-      },
-      {
-        "HashCode": 2071545833,
-        "Kind": "Components.Component",
-        "Name": "Parcial2_Emill.Pages.FetchData",
-        "AssemblyName": "Parcial2_Emill",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "FetchData"
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Parcial2_Emill.Pages.FetchData",
-          "Common.TypeNamespace": "Parcial2_Emill.Pages",
-          "Common.TypeNameIdentifier": "FetchData"
-        }
-      },
-      {
-        "HashCode": 129338046,
-        "Kind": "Components.Component",
-        "Name": "Parcial2_Emill.Pages.FetchData",
-        "AssemblyName": "Parcial2_Emill",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "Parcial2_Emill.Pages.FetchData"
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Parcial2_Emill.Pages.FetchData",
-          "Common.TypeNamespace": "Parcial2_Emill.Pages",
-          "Common.TypeNameIdentifier": "FetchData",
-          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
-        }
-      },
-      {
         "HashCode": 702840951,
         "Kind": "Components.Component",
         "Name": "Parcial2_Emill.Pages.Index",
@@ -120,43 +46,6 @@
           "Common.TypeName": "Parcial2_Emill.Pages.Index",
           "Common.TypeNamespace": "Parcial2_Emill.Pages",
           "Common.TypeNameIdentifier": "Index",
-          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
-        }
-      },
-      {
-        "HashCode": 1821357932,
-        "Kind": "Components.Component",
-        "Name": "Parcial2_Emill.App",
-        "AssemblyName": "Parcial2_Emill",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "App"
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Parcial2_Emill.App",
-          "Common.TypeNamespace": "Parcial2_Emill",
-          "Common.TypeNameIdentifier": "App"
-        }
-      },
-      {
-        "HashCode": -1159577147,
-        "Kind": "Components.Component",
-        "Name": "Parcial2_Emill.App",
-        "AssemblyName": "Parcial2_Emill",
-        "CaseSensitive": true,
-        "TagMatchingRules": [
-          {
-            "TagName": "Parcial2_Emill.App"
-          }
-        ],
-        "Metadata": {
-          "Runtime.Name": "Components.IComponent",
-          "Common.TypeName": "Parcial2_Emill.App",
-          "Common.TypeNamespace": "Parcial2_Emill",
-          "Common.TypeNameIdentifier": "App",
           "Components.NameMatch": "Components.FullyQualifiedNameMatch"
         }
       },
@@ -359,6 +248,43 @@
           "Common.TypeName": "Parcial2_Emill.Shared.NavMenu",
           "Common.TypeNamespace": "Parcial2_Emill.Shared",
           "Common.TypeNameIdentifier": "NavMenu",
+          "Components.NameMatch": "Components.FullyQualifiedNameMatch"
+        }
+      },
+      {
+        "HashCode": 1821357932,
+        "Kind": "Components.Component",
+        "Name": "Parcial2_Emill.App",
+        "AssemblyName": "Parcial2_Emill",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "App"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Parcial2_Emill.App",
+          "Common.TypeNamespace": "Parcial2_Emill",
+          "Common.TypeNameIdentifier": "App"
+        }
+      },
+      {
+        "HashCode": -1159577147,
+        "Kind": "Components.Component",
+        "Name": "Parcial2_Emill.App",
+        "AssemblyName": "Parcial2_Emill",
+        "CaseSensitive": true,
+        "TagMatchingRules": [
+          {
+            "TagName": "Parcial2_Emill.App"
+          }
+        ],
+        "Metadata": {
+          "Runtime.Name": "Components.IComponent",
+          "Common.TypeName": "Parcial2_Emill.App",
+          "Common.TypeNamespace": "Parcial2_Emill",
+          "Common.TypeNameIdentifier": "App",
           "Components.NameMatch": "Components.FullyQualifiedNameMatch"
         }
       },
@@ -18995,18 +18921,8 @@
   "RootNamespace": "Parcial2_Emill",
   "Documents": [
     {
-      "FilePath": "c:\\Users\\Danie\\Desktop\\Parcial2_Emill\\Pages\\FetchData.razor",
-      "TargetPath": "Pages\\FetchData.razor",
-      "FileKind": "component"
-    },
-    {
       "FilePath": "c:\\Users\\Danie\\Desktop\\Parcial2_Emill\\Shared\\NavMenu.razor",
       "TargetPath": "Shared\\NavMenu.razor",
-      "FileKind": "component"
-    },
-    {
-      "FilePath": "c:\\Users\\Danie\\Desktop\\Parcial2_Emill\\Pages\\Counter.razor",
-      "TargetPath": "Pages\\Counter.razor",
       "FileKind": "component"
     },
     {
