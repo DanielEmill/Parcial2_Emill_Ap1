@@ -1,0 +1,156 @@
+@page "/Empacados"
+@page "/Empacados/{empacadoId:int}"
+@inject ProductosBLL productosBLL
+@inject EmpacadosBLL empacadoBLL
+
+<EditForm Model="empacado" OnInvalidSubmit="Guardar">
+<DataAnnotationsValidator/>
+<ValidationSummary/>
+<div class="card">
+	<div class="card-header">
+		<h2>Registro de Producto Empacado</h2>
+	</div>
+    <!--EmpacadoId -->
+	<div class="card-body">
+        <div class="row">
+				<div class="col-3">
+					<label class="text-left">EmpacadoId</label>
+                    <InputNumber class="form-control" @bind-Value="empacado.EmpacadoId" />
+                    <button type="button" @onclick="Buscar" class="btn btn-primary"> <i class="oi oi-zoom-in"></i>Buscar</button>
+				</div> 
+        </div>
+        <div class="row">
+            <!--Empacado Fecha-->
+				<div class="col-3">
+					<label class="form-label">Fecha del empacado</label>
+					<InputDate @bind-Value="empacado.Fecha" class="form-control" placeholder="Ingrese la fecha"/>
+                    <ValidationMessage For="@(() => empacado.Fecha)"/>
+				</div>
+        </div>
+        <!--Empacado Concepto-->
+        <div class="row">
+            <div class="col-3">
+                <label class="text-left">Concepto</label>
+                <InputText @bind-Value="empacado.Concepto" class="form-control" placeholder="Ingrese el concepto"/>
+                <ValidationMessage For="@(() => empacado.Concepto)"/>
+            </div>
+            <hr>
+            <h5>Utilizados</h5>
+            <div class="row">
+                <div class="col-2">
+                    <label>Producto</label>
+                    <InputSelect class="form-select" @bind-Value="Detalle.ProductoId">
+                    @foreach (var producto in productosBLL.GetList(o => true))
+                    {
+                        <option value="@producto.ProductoId">@producto.Descripcion</option>
+                    }
+                    </InputSelect>
+                </div>
+                <div class="col-2">
+                    <label>Cantidad</label>
+                    <InputNumber class="form-control" @bind-Value="Detalle.Cantidad" />
+                </div>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>ProductoId</th>
+                            <th>Descripcion</th>
+                            <th>Cantidad</th>
+                        </tr>
+                    </thead>
+                        <tbody>
+                            @foreach (var detalle in empacado.EmpacadoDetalle)
+                            {
+                                <tr>
+                                    <td>@detalle.ProductoId</td>
+                                    <td>@detalle.Cantidad</td>
+                                    <td> <button name="Btn" id="Btn" class="btn btn-danger mr-2"
+                                    onclick=@(() => EliminarDetalle(detalle.EmpacadoDetalleId))> 
+                                    <i class="oi oi-trash"></i>
+                                    </button>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                </table>
+
+                <div class="col-4 d-flex align-items-end">
+                    <button type="button" class="btn btn-success" @onclick="AgregarDetalle">
+                        <i class="oi oi-plus"></i>
+                    </button>
+                </div>
+                
+
+            </div>
+    </div>
+
+<!--Empacado Botones-->
+		<div class="card-footer">
+			<div class="btn-group" role="group" aria-label="Basic example">
+				<button type="button" class="btn btn-primary" @onclick="Nuevo" ><i class="oi oi-file"></i> Nuevo</button>
+                <button type="sumi" @onclick="Guardar" class="btn btn-success mr-2"><i class=" oi oi-cloud-download"></i> Guardar</button>
+				<button type="button" class="btn btn-danger" @onclick="Eliminar"><i class="oi oi-trash"></i>Eliminar</button>
+			</div>
+		</div>
+</div>
+</div>
+</EditForm>
+@code{
+    [Parameter]
+    public int empacadoId{get; set;}
+    public Empacados empacado{get; set;} = new Empacados();
+    public EmpacadoDetalle Detalle = new EmpacadoDetalle();
+
+    protected override void OnInitialized()
+    {
+        if(empacadoId > 0){
+            empacado.EmpacadoId = empacadoId;
+            Buscar();
+        }
+    }
+    void Buscar(){
+        var empacadoAbuscar = empacadoBLL.Buscar(empacado.EmpacadoId);
+        if(empacadoAbuscar != null){
+            this.empacado  = empacadoAbuscar;
+        }
+    }
+    void Nuevo(){
+        this.empacado = new Empacados();
+    }
+    bool validar(){
+        if(!String.IsNullOrEmpty(empacado.Concepto)){
+            return true;
+        }
+        return false;
+    }
+    void Guardar(){
+        if(!validar()){
+            return;
+        }
+        if(empacadoBLL.Guardar(this.empacado))
+            this.Nuevo();
+    }
+    void Eliminar(){
+        if(empacadoBLL.Eliminar(empacado)){
+            Nuevo();
+        }
+        else{
+            return ;
+        }
+    }
+    void AgregarDetalle()
+    {
+        if (Detalle.Cantidad > 0)
+        {
+            this.empacado.EmpacadoDetalle.Add(this.Detalle);
+            this.Detalle = new EmpacadoDetalle();
+        }
+    }
+    void EliminarDetalle(int detalleIdSeleccionado)
+    {
+        if(empacado.EmpacadoDetalle!=null && detalleIdSeleccionado>0 ){
+            empacado.EmpacadoDetalle.RemoveAll(d => d.EmpacadoDetalleId == detalleIdSeleccionado );
+        }
+    }
+
+}

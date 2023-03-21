@@ -3,6 +3,9 @@ using Microsoft.EntityFrameworkCore;
 public class Contexto : DbContext
 {
     public DbSet <Productos> productos { get; set; }
+    public DbSet <Empacados> Empacados { get; set; }
+    public DbSet <EmpacadoDetalle> EmpacadoDetalle { get; set; }
+
     public Contexto (DbContextOptions<Contexto> options) : base(options){}
     protected override void OnModelCreating(ModelBuilder modelBuilder){
         modelBuilder.Entity<Productos>().HasData(

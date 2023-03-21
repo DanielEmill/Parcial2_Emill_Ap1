@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 public class ProductosBLL{
     private Contexto _contexto;
     public ProductosBLL(Contexto contexto){
-        contexto = _contexto;
+        _contexto = contexto;
     }
 
     public List <Productos> GetList(Expression < Func < Productos, bool >> criterio){
