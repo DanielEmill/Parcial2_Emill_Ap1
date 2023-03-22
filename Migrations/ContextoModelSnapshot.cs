@@ -38,7 +38,7 @@ namespace Parcial2_Emill.Migrations
 
                     b.HasIndex("EmpacadoId");
 
-                    b.ToTable("EmpacadoDetalle");
+                    b.ToTable("EmpacadosD");
                 });
 
             modelBuilder.Entity("Empacados", b =>

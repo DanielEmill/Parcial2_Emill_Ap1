@@ -5,7 +5,6 @@
 @inject NotificationService notify
 
 <PageTitle>Registro</PageTitle>
-
 <EditForm Model="empacado" OnInvalidSubmit="Guardar">
     <DataAnnotationsValidator/>
     <ValidationSummary/>
@@ -116,7 +115,7 @@
         var empacadoAbuscar = empacadoBLL.Buscar(empacado.EmpacadoId);
         if(empacadoAbuscar != null){
             notify.ShowNotification("Se ha encontrado la busqueda con exito", NotificationSeverity.Info);
-            this.empacado  = empacadoAbuscar;
+            empacado  = empacadoAbuscar;
         }
         else{
             notify.ShowNotification("Ingrese un valor valido", NotificationSeverity.Error);
@@ -143,7 +142,7 @@
     void Eliminar(){
         if(empacado.EmpacadoId > 0)
         {
-            if(empacadoBLL.Eliminar(empacado) && empacadoBLL.Existe(empacado.EmpacadoId))
+            if(empacadoBLL.Eliminar(empacado.EmpacadoId))
             {
             notify.ShowNotification("Se ha eliminado con exito", NotificationSeverity.Error);
             Nuevo();
@@ -158,15 +157,16 @@
     void AgregarDetalle()
     {
         var producto = productosBLL.Buscar(Detalle.ProductoId);
-        if (Detalle.Cantidad > 0)
+        if (Detalle.Cantidad <= producto.Existencia)
         {
             notify.ShowNotification("Agregado correctamente.");
             Detalle.Descripcion = producto!.Descripcion;
             this.empacado.EmpacadoDetalle.Add(this.Detalle);
             this.Detalle = new EmpacadoDetalle();
         }
-        else{
-            notify.ShowNotification("No añadido", NotificationSeverity.Error);
+        else
+        {
+            notify.ShowNotification("La cantidad solicitada excede la existencia del producto.", NotificationSeverity.Error);
         }
     }
     void EliminarDetalle(int detalleIdSeleccionado)

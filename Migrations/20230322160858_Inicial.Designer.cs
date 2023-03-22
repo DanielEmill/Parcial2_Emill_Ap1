@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Parcial2_Emill.Migrations
 {
     [DbContext(typeof(Contexto))]
-    [Migration("20230322030930_Inicial")]
+    [Migration("20230322160858_Inicial")]
     partial class Inicial
     {
         /// <inheritdoc />
@@ -41,7 +41,7 @@ namespace Parcial2_Emill.Migrations
 
                     b.HasIndex("EmpacadoId");
 
-                    b.ToTable("EmpacadoDetalle");
+                    b.ToTable("EmpacadosD");
                 });
 
             modelBuilder.Entity("Empacados", b =>

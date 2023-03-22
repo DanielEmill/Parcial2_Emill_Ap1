@@ -44,7 +44,7 @@ namespace Parcial2_Emill.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "EmpacadoDetalle",
+                name: "EmpacadosD",
                 columns: table => new
                 {
                     EmpacadoDetalleId = table.Column<int>(type: "INTEGER", nullable: false)
@@ -56,9 +56,9 @@ namespace Parcial2_Emill.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_EmpacadoDetalle", x => x.EmpacadoDetalleId);
+                    table.PrimaryKey("PK_EmpacadosD", x => x.EmpacadoDetalleId);
                     table.ForeignKey(
-                        name: "FK_EmpacadoDetalle_Empacados_EmpacadoId",
+                        name: "FK_EmpacadosD_Empacados_EmpacadoId",
                         column: x => x.EmpacadoId,
                         principalTable: "Empacados",
                         principalColumn: "EmpacadoId",
@@ -78,8 +78,8 @@ namespace Parcial2_Emill.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_EmpacadoDetalle_EmpacadoId",
-                table: "EmpacadoDetalle",
+                name: "IX_EmpacadosD_EmpacadoId",
+                table: "EmpacadosD",
                 column: "EmpacadoId");
         }
 
@@ -87,7 +87,7 @@ namespace Parcial2_Emill.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "EmpacadoDetalle");
+                name: "EmpacadosD");
 
             migrationBuilder.DropTable(
                 name: "productos");
