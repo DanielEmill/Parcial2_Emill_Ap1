@@ -1,0 +1,137 @@
+@page "/ConsultaProducto"
+@inject ProductosBLL productosBll
+@inject NotificationService notify
+
+<PageTitle>Consultas</PageTitle>
+
+<div class="card">
+    <div class="card-header">
+        <h2>Consultas de productos registrados</h2>
+        <form>
+                <div class="input-group d-flex align-items-end">
+            <div class="flex-fill mx-2"> 
+                    <label>Filtro </label>  
+                    <select class="form-control col-2" @bind="Filtro">
+                        <option value="0">Todo</option>
+                        <option value="1">ProductoID</option>
+                        <option value="2">Descripcion</option>
+                        <option value="3">Costo</option>
+                        <option value="4">Precio</option>
+                        <option value="5">Existencia</option>
+                    </select>
+            </div>
+                    <div class="flex-fill mx-2">
+                        <label>Criterio</label>
+                        <input type="text" class="form-control" @bind="Criterio" disabled="@(!HabilitarCriterio)"/>
+                    </div>
+
+                    <button type="button" class="btn btn-success mr-2" @onclick="Buscar">
+                        <i class="oi oi-magnifying-glass mr-2"/> Buscar
+                    </button>
+    
+                </div>
+            </form>
+    </div>
+    <div class="card-body">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">ProductoID</th>
+                    <th scope="col">Descripcion</th>
+                    <th scope="col">Costo</th>
+                    <th scope="col">Precio</th>
+                    <th scope="col">Existencia</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach(var producto in FiltroProductos)
+                {
+                    <tr>
+                    <td>@producto.ProductoId</td>
+                    <td>@producto.Descripcion</td>
+                    <td>@producto.Costo</td>
+                    <td>@producto.Precio</td>
+                    <td>@producto.Existencia</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+@code {
+    public bool HabilitarCriterio {get{return Filtro != "0";}}
+    public string? Filtro { get; set; }
+    public string? Criterio { get; set; }
+    public List<Productos> FiltroProductos { get; set; } = new List<Productos>();
+    protected override async Task OnInitializedAsync()
+    {
+        FiltroProductos  = productosBll.GetList(o => true);
+    }
+    private void Buscar()
+    {
+    double valorNumerico;
+    double valorNumerico2;
+    bool esNumerico = double.TryParse(Criterio, out valorNumerico);
+    bool esNumerico2 = double.TryParse(Criterio, out valorNumerico);
+
+        switch (Filtro)
+        {
+            case "0":
+                FiltroProductos = productosBll.GetList(o => true);
+                break;                
+            case "1":
+                int id;
+                if (!int.TryParse(Criterio, out id))
+                {
+                    notify.ShowNotification("Debe colocar un numero entero", NotificationSeverity.Error);
+                    return;
+                }
+                FiltroProductos = productosBll.GetList(o => o.ProductoId == id);
+                break;
+            case "2":
+            if (string.IsNullOrEmpty(Criterio))
+            {
+                notify.ShowNotification("Debe colocar un concepto  para la búsqueda.", NotificationSeverity.Error);
+                return;
+            }
+                FiltroProductos = productosBll.GetList(o => o.Descripcion!.Contains(Criterio));
+                break;
+            case "3":
+            esNumerico = double.TryParse(Criterio, out valorNumerico);
+            if (!esNumerico)
+            {
+                notify.ShowNotification("Debe colocar un valor numérico para la búsqueda por Monto.", NotificationSeverity.Error);
+                return;
+            }
+                FiltroProductos = productosBll.GetList(o => o.Costo == valorNumerico);
+                break;
+            case "4":
+            esNumerico2 = double.TryParse(Criterio, out valorNumerico2);
+            if (!esNumerico2)
+            {
+                notify.ShowNotification("Debe colocar un valor numérico para la búsqueda por Monto.", NotificationSeverity.Error);
+                return;
+            }
+                FiltroProductos = productosBll.GetList(o => o.Precio == valorNumerico2);
+                break;
+            case "5":
+                int Existenc;
+                if (!int.TryParse(Criterio, out Existenc))
+                {
+                notify.ShowNotification("Debe colocar un valor entero para la búsqueda por Existencia.", NotificationSeverity.Error);
+                    return;
+                }
+                FiltroProductos = productosBll.GetList(o => o.Existencia == Existenc);
+                break;
+            default:
+                FiltroProductos = productosBll.GetList(o => true);
+                break;
+        }
+        if (!FiltroProductos.Any())
+        {
+            notify.ShowNotification("No se encontro resultado", NotificationSeverity.Error);
+        }
+    }
+}

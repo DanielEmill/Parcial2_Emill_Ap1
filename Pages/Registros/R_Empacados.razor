@@ -2,10 +2,14 @@
 @page "/Empacados/{empacadoId:int}"
 @inject ProductosBLL productosBLL
 @inject EmpacadosBLL empacadoBLL
+@inject NotificationService notify
+
+<PageTitle>Registro</PageTitle>
 
 <EditForm Model="empacado" OnInvalidSubmit="Guardar">
-<DataAnnotationsValidator/>
-<ValidationSummary/>
+    <DataAnnotationsValidator/>
+    <ValidationSummary/>
+
 <div class="card">
 	<div class="card-header">
 		<h2>Registro de Producto Empacado</h2>
@@ -50,6 +54,11 @@
                     <label>Cantidad</label>
                     <InputNumber class="form-control" @bind-Value="Detalle.Cantidad" />
                 </div>
+                <div class="col-4 d-flex align-items-end">
+                    <button type="button" class="btn btn-success" @onclick="AgregarDetalle">
+                        <i class="oi oi-plus"></i>
+                    </button>
+                </div>
                 <table class="table">
                     <thead>
                         <tr>
@@ -63,6 +72,7 @@
                             {
                                 <tr>
                                     <td>@detalle.ProductoId</td>
+                                    <td>@detalle.Descripcion</td>
                                     <td>@detalle.Cantidad</td>
                                     <td> <button name="Btn" id="Btn" class="btn btn-danger mr-2"
                                     onclick=@(() => EliminarDetalle(detalle.EmpacadoDetalleId))> 
@@ -73,14 +83,6 @@
                             }
                         </tbody>
                 </table>
-
-                <div class="col-4 d-flex align-items-end">
-                    <button type="button" class="btn btn-success" @onclick="AgregarDetalle">
-                        <i class="oi oi-plus"></i>
-                    </button>
-                </div>
-                
-
             </div>
     </div>
 
@@ -95,6 +97,8 @@
 </div>
 </div>
 </EditForm>
+
+
 @code{
     [Parameter]
     public int empacadoId{get; set;}
@@ -111,39 +115,58 @@
     void Buscar(){
         var empacadoAbuscar = empacadoBLL.Buscar(empacado.EmpacadoId);
         if(empacadoAbuscar != null){
+            notify.ShowNotification("Se ha encontrado la busqueda con exito", NotificationSeverity.Info);
             this.empacado  = empacadoAbuscar;
+        }
+        else{
+            notify.ShowNotification("Ingrese un valor valido", NotificationSeverity.Error);
         }
     }
     void Nuevo(){
         this.empacado = new Empacados();
     }
     bool validar(){
-        if(!String.IsNullOrEmpty(empacado.Concepto)){
+        if(!String.IsNullOrEmpty(empacado.Concepto) && empacado.EmpacadoDetalle != null){
             return true;
         }
         return false;
     }
     void Guardar(){
         if(!validar()){
+        notify.ShowNotification("No hay campos llenos.", NotificationSeverity.Error);
             return;
         }
         if(empacadoBLL.Guardar(this.empacado))
+            notify.ShowNotification("Se ha guardado con exito.");
             this.Nuevo();
     }
     void Eliminar(){
-        if(empacadoBLL.Eliminar(empacado)){
+        if(empacado.EmpacadoId > 0)
+        {
+            if(empacadoBLL.Eliminar(empacado) && empacadoBLL.Existe(empacado.EmpacadoId))
+            {
+            notify.ShowNotification("Se ha eliminado con exito", NotificationSeverity.Error);
             Nuevo();
+            }
         }
-        else{
+        else
+        {
+            notify.ShowNotification("No hay elemento para borrar", NotificationSeverity.Error);
             return ;
         }
     }
     void AgregarDetalle()
     {
+        var producto = productosBLL.Buscar(Detalle.ProductoId);
         if (Detalle.Cantidad > 0)
         {
+            notify.ShowNotification("Agregado correctamente.");
+            Detalle.Descripcion = producto!.Descripcion;
             this.empacado.EmpacadoDetalle.Add(this.Detalle);
             this.Detalle = new EmpacadoDetalle();
+        }
+        else{
+            notify.ShowNotification("No añadido", NotificationSeverity.Error);
         }
     }
     void EliminarDetalle(int detalleIdSeleccionado)

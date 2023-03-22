@@ -1,5 +1,5 @@
 using System.ComponentModel.DataAnnotations;
-
+using System.ComponentModel.DataAnnotations.Schema;
 public class Productos{
     [Key]
     public int ProductoId { get; set; }

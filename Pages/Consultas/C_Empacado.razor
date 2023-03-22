@@ -1,0 +1,111 @@
+@page "/EmpacadoProducto"
+@inject EmpacadosBLL empacadosBLL
+@inject NotificationService notify
+<PageTitle>Consultas</PageTitle>
+
+<div class="card">
+    <div class="card-header">
+        <h2>Consultas de Empacado registrados</h2>
+        <form>
+                <div class="input-group d-flex align-items-end">
+            <div class="flex-fill mx-2"> 
+                    <label>Filtro </label>  
+                    <select class="form-control col-2" @bind="Filtro">
+                        <option value="0">Todo</option>
+                        <option value="1">EmpacadoId</option>
+                        <option value="2">Fecha</option>
+                        <option value="3">Concepto</option>
+                    </select>
+            </div>
+                    <div class="flex-fill mx-2">
+                        <label>Criterio</label>
+                        <input type="text" class="form-control" @bind="Criterio" disabled="@(!HabilitarCriterio)"/>
+                    </div>
+
+                    <button type="button" class="btn btn-success mr-2" @onclick="Buscar">
+                        <i class="oi oi-magnifying-glass mr-2"/> Buscar
+                    </button>
+    
+                </div>
+            </form>
+    </div>
+    <div class="card-body">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">EmpacadoId</th>
+                    <th scope="col">Fecha</th>
+                    <th scope="col">Concepto</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach(var empacado in FiltroEmpacado)
+                {
+                    <tr>
+                    <td>@empacado.EmpacadoId</td>
+                    <td>@empacado.Fecha</td>
+                    <td>@empacado.Concepto</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+@code {
+    public bool HabilitarCriterio {get{return Filtro != "0";}}
+    public string? Filtro { get; set; }
+    public string? Criterio { get; set; }
+    public List<Empacados> FiltroEmpacado { get; set; } = new List<Empacados>();
+    protected override async Task OnInitializedAsync()
+    {
+        FiltroEmpacado  = empacadosBLL.GetList(o => true);
+    }
+    private void Buscar()
+    {
+    double valorNumerico;
+    bool esNumerico = double.TryParse(Criterio, out valorNumerico);
+
+        switch (Filtro)
+        {
+            case "0":
+                FiltroEmpacado = empacadosBLL.GetList(o => true);
+                break;                
+            case "1":
+                int id;
+                if (!int.TryParse(Criterio, out id))
+                {
+                    notify.ShowNotification("Debe colocar un numero entero", NotificationSeverity.Error);
+                    return;
+                }
+                FiltroEmpacado = empacadosBLL.GetList(o => o.EmpacadoId == id);
+                break;
+            case "2":
+                if (DateTime.TryParse(Criterio, out DateTime fechaV))
+                {
+                    FiltroEmpacado = empacadosBLL.GetList(o => o.Fecha.Date == fechaV.Date);
+                }
+                else
+                {
+                    notify.ShowNotification("Debe colocar una fecha válida en formato dd/MM/yyyy.", NotificationSeverity.Error);
+                }
+                break;
+            case "3":
+            if (string.IsNullOrEmpty(Criterio))
+            {
+                notify.ShowNotification("Debe colocar un concepto  para la búsqueda.", NotificationSeverity.Error);
+                return;
+            }
+                FiltroEmpacado = empacadosBLL.GetList(o => o.Concepto!.Contains(Criterio));
+                break;
+            default:
+                FiltroEmpacado = empacadosBLL.GetList(o => true);
+                break;
+        }
+        if (!FiltroEmpacado.Any())
+        {
+            notify.ShowNotification("No se encontro resultado", NotificationSeverity.Error);
+        }
+    }
+}
