@@ -79,7 +79,7 @@ public bool Eliminar(Empacados empacado){
             }
         }
         _contexto.RemoveRange(empacado.EmpacadoDetalle);
-        _contexto.Entry(empacado).State = EntityState.Modified;
+        _contexto.Entry(empacado).State = EntityState.Deleted;
         bool save = _contexto.SaveChanges() >0;
         _contexto.Entry(empacado).State = EntityState.Detached;
         return  save; 

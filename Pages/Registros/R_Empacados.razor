@@ -130,13 +130,15 @@
         return false;
     }
     void Guardar(){
-        if(!validar()){
+        if(!validar() && Detalle.ProductoId <= 0){
         notify.ShowNotification("No hay campos llenos.", NotificationSeverity.Error);
             return;
         }
-        if(empacadoBLL.Guardar(this.empacado))
+        if(empacadoBLL.Guardar(this.empacado) && Detalle.Cantidad > 0)
+        {
             notify.ShowNotification("Se ha guardado con exito.");
             this.Nuevo();
+        }
     }
     void Eliminar(){
         if(empacado.EmpacadoId > 0)
@@ -170,6 +172,6 @@
     }
     void EliminarDetalle(int detalleIdSeleccionado)
     {
-        empacado.EmpacadoDetalle.RemoveAll(d => d.EmpacadoDetalleId == detalleIdSeleccionado );
+        empacado.EmpacadoDetalle.RemoveAll(d => d.EmpacadoDetalleId == detalleIdSeleccionado);
     }
 }
