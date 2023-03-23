@@ -103,7 +103,6 @@
     public int empacadoId{get; set;}
     public Empacados empacado{get; set;} = new Empacados();
     public EmpacadoDetalle Detalle = new EmpacadoDetalle();
-
     protected override void OnInitialized()
     {
         if(empacadoId > 0){
@@ -142,7 +141,7 @@
     void Eliminar(){
         if(empacado.EmpacadoId > 0)
         {
-            if(empacadoBLL.Eliminar(empacado.EmpacadoId))
+            if(empacadoBLL.Eliminar(empacado))
             {
             notify.ShowNotification("Se ha eliminado con exito", NotificationSeverity.Error);
             Nuevo();
@@ -157,7 +156,7 @@
     void AgregarDetalle()
     {
         var producto = productosBLL.Buscar(Detalle.ProductoId);
-        if (Detalle.Cantidad <= producto.Existencia)
+        if (Detalle.Cantidad <= producto?.Existencia)
         {
             notify.ShowNotification("Agregado correctamente.");
             Detalle.Descripcion = producto!.Descripcion;
@@ -171,9 +170,6 @@
     }
     void EliminarDetalle(int detalleIdSeleccionado)
     {
-        if(empacado.EmpacadoDetalle!=null && detalleIdSeleccionado>0 ){
-            empacado.EmpacadoDetalle.RemoveAll(d => d.EmpacadoDetalleId == detalleIdSeleccionado );
-        }
+        empacado.EmpacadoDetalle.RemoveAll(d => d.EmpacadoDetalleId == detalleIdSeleccionado );
     }
-
 }

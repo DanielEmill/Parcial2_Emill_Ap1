@@ -53,6 +53,10 @@ private bool Modificar(Empacados empacado)
             }
         }
     }
+    var DetalleEliminar = _contexto.Set<EmpacadoDetalle>().Where(o => o.EmpacadoId == empacado.EmpacadoId);
+    _contexto.Set<EmpacadoDetalle>().RemoveRange(DetalleEliminar);
+    _contexto.Set<EmpacadoDetalle>().AddRange(empacado.EmpacadoDetalle);
+    
     _contexto.Entry(empacado).State = EntityState.Modified;
     return _contexto.SaveChanges() > 0;
 }
@@ -64,7 +68,6 @@ private bool Modificar(Empacados empacado)
             return this.Modificar(empacado);
         }
     }
-    /*
 public bool Eliminar(Empacados empacado){
         foreach (var detalle in empacado.EmpacadoDetalle)
         {
@@ -76,16 +79,12 @@ public bool Eliminar(Empacados empacado){
             }
         }
         _contexto.RemoveRange(empacado.EmpacadoDetalle);
-
-    _contexto.Entry(empacado).State = EntityState.Deleted; 
-    bool save = _contexto.SaveChanges() > 0;
-    if (save)
-    {
-        _contexto.Entry(empacado).State = EntityState.Detached; 
-    }
-    return save;
+        _contexto.Entry(empacado).State = EntityState.Modified;
+        bool save = _contexto.SaveChanges() >0;
+        _contexto.Entry(empacado).State = EntityState.Detached;
+        return  save; 
 }
-*/
+/*
     public bool Eliminar(int empacado)
     {
     var empacadoABorrar = _contexto.Empacados.Where(o=> o.EmpacadoId == empacado).SingleOrDefault();
@@ -104,7 +103,7 @@ public bool Eliminar(Empacados empacado){
         return _contexto.SaveChanges() > 0;
         }
         return false;
-    }
+    }*/
     public Empacados? Buscar(int empacadoId){
         return _contexto.Empacados
         .Include(o =>  o.EmpacadoDetalle).Where(o=> o.EmpacadoId == empacadoId).AsNoTracking().SingleOrDefault();

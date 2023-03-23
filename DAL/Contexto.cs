@@ -14,7 +14,7 @@ public class Contexto : DbContext
                 Descripcion = "Maní",
                 Costo = 100,
                 Precio = 25,
-                Existencia = 15
+                Existencia = 225
             }
         );
         modelBuilder.Entity<Productos>().HasData(
@@ -23,7 +23,7 @@ public class Contexto : DbContext
                 Descripcion = "Pistachos",
                 Costo = 30,
                 Precio = 15,
-                Existencia = 20
+                Existencia = 225
             }
         );
         modelBuilder.Entity<Productos>().HasData(
@@ -32,7 +32,7 @@ public class Contexto : DbContext
                 Descripcion = "Ciruelas",
                 Costo = 25,
                 Precio = 5,
-                Existencia = 30
+                Existencia = 225
             }
         );
         modelBuilder.Entity<Productos>().HasData(
@@ -41,7 +41,7 @@ public class Contexto : DbContext
                 Descripcion = "Pasas",
                 Costo = 50,
                 Precio = 10,
-                Existencia = 50
+                Existencia = 225
             }
         );
         modelBuilder.Entity<Productos>().HasData(
@@ -50,7 +50,7 @@ public class Contexto : DbContext
                 Descripcion = "Arándanos",
                 Costo = 200,
                 Precio = 100,
-                Existencia = 50
+                Existencia = 225
             }
         );
     }
