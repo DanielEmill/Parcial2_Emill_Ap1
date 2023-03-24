@@ -57,8 +57,9 @@ private bool Modificar(Empacados empacado)
     _contexto.Set<EmpacadoDetalle>().RemoveRange(DetalleEliminar);
     _contexto.Set<EmpacadoDetalle>().AddRange(empacado.EmpacadoDetalle);
     
-    _contexto.Entry(empacado).State = EntityState.Modified;
-    return _contexto.SaveChanges() > 0;
+    bool paso = _contexto.SaveChanges() >0;
+    _contexto.Entry(empacado).State = EntityState.Detached;
+    return paso; 
 }
     public bool Guardar(Empacados empacado){
         if(!Existe(empacado.EmpacadoId)){

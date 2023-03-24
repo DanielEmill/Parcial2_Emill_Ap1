@@ -130,11 +130,11 @@
         return false;
     }
     void Guardar(){
-        if(!validar() && Detalle.ProductoId <= 0){
+        if(!validar()){
         notify.ShowNotification("No hay campos llenos.", NotificationSeverity.Error);
             return;
         }
-        if(empacadoBLL.Guardar(this.empacado) && Detalle.Cantidad > 0)
+        if(empacadoBLL.Guardar(this.empacado))
         {
             notify.ShowNotification("Se ha guardado con exito.");
             this.Nuevo();
