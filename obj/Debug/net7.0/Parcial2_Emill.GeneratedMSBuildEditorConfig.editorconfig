@@ -9,53 +9,57 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Parcial2_Emill
 build_property.RootNamespace = Parcial2_Emill
-build_property.ProjectDir = C:\Users\DECG\Desktop\Parcial2_Emill\Parcial2_Emill\
+build_property.ProjectDir = C:\Users\Danie\Desktop\Parcial2_Emill_Ap1\
 build_property.RazorLangVersion = 7.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\DECG\Desktop\Parcial2_Emill\Parcial2_Emill
+build_property.MSBuildProjectDirectory = C:\Users\Danie\Desktop\Parcial2_Emill_Ap1
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/DECG/Desktop/Parcial2_Emill/Parcial2_Emill/App.razor]
+[C:/Users/Danie/Desktop/Parcial2_Emill_Ap1/App.razor]
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DECG/Desktop/Parcial2_Emill/Parcial2_Emill/Pages/Consultas/C_Empacado.razor]
+[C:/Users/Danie/Desktop/Parcial2_Emill_Ap1/Pages/Consultas/C_Empacado.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29uc3VsdGFzXENfRW1wYWNhZG8ucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DECG/Desktop/Parcial2_Emill/Parcial2_Emill/Pages/Consultas/C_Producto.razor]
+[C:/Users/Danie/Desktop/Parcial2_Emill_Ap1/Pages/Consultas/C_Producto.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ29uc3VsdGFzXENfUHJvZHVjdG8ucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DECG/Desktop/Parcial2_Emill/Parcial2_Emill/Pages/Index.razor]
+[C:/Users/Danie/Desktop/Parcial2_Emill_Ap1/Pages/Index.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DECG/Desktop/Parcial2_Emill/Parcial2_Emill/Pages/Registros/R_Empacados.razor]
+[C:/Users/Danie/Desktop/Parcial2_Emill_Ap1/Pages/Registros/R_Empacados.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmVnaXN0cm9zXFJfRW1wYWNhZG9zLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DECG/Desktop/Parcial2_Emill/Parcial2_Emill/Shared/SurveyPrompt.razor]
+[C:/Users/Danie/Desktop/Parcial2_Emill_Ap1/Pages/Registros/R_Producto.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmVnaXN0cm9zXFJfUHJvZHVjdG8ucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Danie/Desktop/Parcial2_Emill_Ap1/Shared/SurveyPrompt.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXFN1cnZleVByb21wdC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DECG/Desktop/Parcial2_Emill/Parcial2_Emill/_Imports.razor]
+[C:/Users/Danie/Desktop/Parcial2_Emill_Ap1/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DECG/Desktop/Parcial2_Emill/Parcial2_Emill/Shared/MainLayout.razor]
+[C:/Users/Danie/Desktop/Parcial2_Emill_Ap1/Shared/MainLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE1haW5MYXlvdXQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-0z4nc860rr
 
-[C:/Users/DECG/Desktop/Parcial2_Emill/Parcial2_Emill/Shared/NavMenu.razor]
+[C:/Users/Danie/Desktop/Parcial2_Emill_Ap1/Shared/NavMenu.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE5hdk1lbnUucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-0qqbkowphc
 
-[C:/Users/DECG/Desktop/Parcial2_Emill/Parcial2_Emill/Pages/Error.cshtml]
+[C:/Users/Danie/Desktop/Parcial2_Emill_Ap1/Pages/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/DECG/Desktop/Parcial2_Emill/Parcial2_Emill/Pages/_Host.cshtml]
+[C:/Users/Danie/Desktop/Parcial2_Emill_Ap1/Pages/_Host.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX0hvc3QuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 

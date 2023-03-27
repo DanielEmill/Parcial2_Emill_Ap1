@@ -1828,19 +1828,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\DECG\\.nuget\\packages\\": {}
+    "C:\\Users\\Danie\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\DECG\\Desktop\\Parcial2_Emill\\Parcial2_Emill\\Parcial2_Emill.csproj",
+      "projectUniqueName": "C:\\Users\\Danie\\Desktop\\Parcial2_Emill_Ap1\\Parcial2_Emill.csproj",
       "projectName": "Parcial2_Emill",
-      "projectPath": "C:\\Users\\DECG\\Desktop\\Parcial2_Emill\\Parcial2_Emill\\Parcial2_Emill.csproj",
-      "packagesPath": "C:\\Users\\DECG\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\DECG\\Desktop\\Parcial2_Emill\\Parcial2_Emill\\obj\\",
+      "projectPath": "C:\\Users\\Danie\\Desktop\\Parcial2_Emill_Ap1\\Parcial2_Emill.csproj",
+      "packagesPath": "C:\\Users\\Danie\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Danie\\Desktop\\Parcial2_Emill_Ap1\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\DECG\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Danie\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -1904,7 +1904,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.200\\RuntimeIdentifierGraph.json"
       }
     }
   }
