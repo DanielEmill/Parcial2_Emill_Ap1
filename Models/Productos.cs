@@ -5,7 +5,7 @@ public class Productos{
     public int ProductoId { get; set; }
     [Required(ErrorMessage = "La descripcion es obligatorio.")]
     public string? Descripcion { get; set; }
-    [Range(1, Double.MaxValue, ErrorMessage ="El Costo debe de estar en el rango de {1} - {2}")]
+    [Range(1, Double.MaxValue, ErrorMessage ="El Costo debe de estar en el rango minimo de {1}")]
     public double Costo { get; set; }
     [Range(1, Double.MaxValue, ErrorMessage ="El Precio debe de estar en el rango de {1} - {2}")]
     public double Precio { get; set; }
