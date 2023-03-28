@@ -10,6 +10,7 @@ public class EmpacadosBLL
         return _contexto.Empacados.Any(o => o.EmpacadoId == empacadoId );
     }
     private bool Insertar(Empacados empacado){
+        
         var mixto = _contexto.productos.Find(6);
 
         foreach (var detalle in empacado.EmpacadoDetalle)
@@ -19,10 +20,8 @@ public class EmpacadosBLL
                 producto.Existencia -= detalle.Cantidad;
 
                 mixto!.Existencia += empacado.Cantidad;
-                _contexto.Entry(mixto).State = EntityState.Modified;
-
-
                 _contexto.Entry(producto).State = EntityState.Modified;
+                _contexto.Entry(mixto).State = EntityState.Modified;
                 _contexto.SaveChanges();
             }
         }
@@ -87,8 +86,8 @@ public bool Eliminar(Empacados empacado){
             if(producto!=null){
                 producto.Existencia += detalle.Cantidad;
                 mixto!.Existencia -= empacado.Cantidad;
-                _contexto.Entry(mixto).State = EntityState.Modified;
                 _contexto.Entry(producto).State = EntityState.Modified;
+                _contexto.Entry(mixto).State = EntityState.Modified;
                 _contexto.SaveChanges();
             }
         }

@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Parcial2_Emill.Migrations
 {
     [DbContext(typeof(Contexto))]
-    [Migration("20230327234309_Inicial")]
+    [Migration("20230328024359_Inicial")]
     partial class Inicial
     {
         /// <inheritdoc />
