@@ -20,7 +20,8 @@ namespace Parcial2_Emill.Migrations
                     EmpacadoId = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     Fecha = table.Column<DateTime>(type: "TEXT", nullable: false),
-                    Concepto = table.Column<string>(type: "TEXT", nullable: false)
+                    Concepto = table.Column<string>(type: "TEXT", nullable: false),
+                    Cantidad = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -74,7 +75,8 @@ namespace Parcial2_Emill.Migrations
                     { 2, 30.0, "Pistachos", 225, 15.0 },
                     { 3, 25.0, "Ciruelas", 225, 5.0 },
                     { 4, 50.0, "Pasas", 225, 10.0 },
-                    { 5, 200.0, "Arándanos", 225, 100.0 }
+                    { 5, 200.0, "Arándanos", 225, 100.0 },
+                    { 6, 100.0, "Producto Mixto", 0, 300.0 }
                 });
 
             migrationBuilder.CreateIndex(

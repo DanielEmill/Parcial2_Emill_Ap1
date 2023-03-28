@@ -10,11 +10,18 @@ public class EmpacadosBLL
         return _contexto.Empacados.Any(o => o.EmpacadoId == empacadoId );
     }
     private bool Insertar(Empacados empacado){
+        var mixto = _contexto.productos.Find(6);
+
         foreach (var detalle in empacado.EmpacadoDetalle)
         {
             var producto = _contexto.productos.Find(detalle.ProductoId);
             if(producto!=null){
                 producto.Existencia -= detalle.Cantidad;
+
+                mixto!.Existencia += empacado.Cantidad;
+                _contexto.Entry(mixto).State = EntityState.Modified;
+
+
                 _contexto.Entry(producto).State = EntityState.Modified;
                 _contexto.SaveChanges();
             }
@@ -27,6 +34,7 @@ public class EmpacadosBLL
 private bool Modificar(Empacados empacado)
 {
     var detallesOriginales = _contexto.EmpacadosD.AsNoTracking().Where(d => d.EmpacadoId == empacado.EmpacadoId).ToList();
+    
     foreach (var detalle in empacado.EmpacadoDetalle)
     {
         if (detallesOriginales.Any(d => d.EmpacadoId == detalle.EmpacadoId))
@@ -70,11 +78,16 @@ private bool Modificar(Empacados empacado)
         }
     }
 public bool Eliminar(Empacados empacado){
+
+        var mixto = _contexto.productos.Find(6);
+
         foreach (var detalle in empacado.EmpacadoDetalle)
         {
             var producto = _contexto.productos.Find(detalle.ProductoId);
             if(producto!=null){
                 producto.Existencia += detalle.Cantidad;
+                mixto!.Existencia -= empacado.Cantidad;
+                _contexto.Entry(mixto).State = EntityState.Modified;
                 _contexto.Entry(producto).State = EntityState.Modified;
                 _contexto.SaveChanges();
             }

@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Parcial2_Emill.Migrations
 {
     [DbContext(typeof(Contexto))]
-    [Migration("20230323204304_Inicial")]
+    [Migration("20230327234309_Inicial")]
     partial class Inicial
     {
         /// <inheritdoc />
@@ -48,6 +48,9 @@ namespace Parcial2_Emill.Migrations
                 {
                     b.Property<int>("EmpacadoId")
                         .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("Cantidad")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Concepto")
@@ -125,6 +128,14 @@ namespace Parcial2_Emill.Migrations
                             Descripcion = "Arándanos",
                             Existencia = 225,
                             Precio = 100.0
+                        },
+                        new
+                        {
+                            ProductoId = 6,
+                            Costo = 100.0,
+                            Descripcion = "Producto Mixto",
+                            Existencia = 0,
+                            Precio = 300.0
                         });
                 });
 

@@ -47,6 +47,9 @@ namespace Parcial2_Emill.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
+                    b.Property<int>("Cantidad")
+                        .HasColumnType("INTEGER");
+
                     b.Property<string>("Concepto")
                         .IsRequired()
                         .HasColumnType("TEXT");
@@ -122,6 +125,14 @@ namespace Parcial2_Emill.Migrations
                             Descripcion = "Arándanos",
                             Existencia = 225,
                             Precio = 100.0
+                        },
+                        new
+                        {
+                            ProductoId = 6,
+                            Costo = 100.0,
+                            Descripcion = "Producto Mixto",
+                            Existencia = 0,
+                            Precio = 300.0
                         });
                 });
 

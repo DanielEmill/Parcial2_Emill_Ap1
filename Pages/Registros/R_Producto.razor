@@ -7,7 +7,6 @@
 <PageTitle>Registro</PageTitle>
 <EditForm Model="producto" OnInvalidSubmit="Guardar">
 <DataAnnotationsValidator/>
-<ValidationSummary/>
 <!--HTML-->
     <div class="card">
         <div class="card-header">
@@ -55,7 +54,7 @@
                     <ValidationMessage For="@(() => producto.Existencia)"/>
                 </div>
             </div>
-
+<ValidationSummary/>
 <!--Botones-->
             <div class="card-footer">
                 <div class="btn-group" role="group" aria-label="Basic example">

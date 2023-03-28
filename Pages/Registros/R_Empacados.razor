@@ -7,7 +7,6 @@
 <PageTitle>Registro</PageTitle>
 <EditForm Model="empacado" OnInvalidSubmit="Guardar">
     <DataAnnotationsValidator/>
-    <ValidationSummary/>
 
 <div class="card">
 	<div class="card-header">
@@ -43,7 +42,7 @@
                 <div class="col-2">
                     <label>Producto</label>
                     <InputSelect class="form-select" @bind-Value="Detalle.ProductoId">
-                    @foreach (var producto in productosBLL.GetList(o => true))
+                    @foreach (var producto in productosBLL.GetList(o => true).Where(o=> o.ProductoId < 6))
                     {
                         <option value="@producto.ProductoId">@producto.Descripcion</option>
                     }
@@ -83,7 +82,24 @@
                         </tbody>
                 </table>
             </div>
+        <h5>Producido: </h5>
+            <div class="row">
+                <div class="col-3">
+                    <label class="text-left">Producto</label>
+                        <InputSelect class="form-select" @bind-Value="Detalle.ProductoId">
+                        @foreach (var producto in productosBLL.GetList(o => true).Where(o=> o.ProductoId == 6))
+                        {
+                            <option value="@producto.ProductoId">@producto.Descripcion</option>
+                        }
+                        </InputSelect>
+                </div>
+                <div class="col-2">
+                    <label>Cantidad</label>
+                    <InputNumber class="form-control" @bind-Value="empacado.Cantidad" />
+                </div>
+            </div>
     </div>
+<ValidationSummary/>
 
 <!--Empacado Botones-->
 		<div class="card-footer">

@@ -8,6 +8,7 @@ public class Empacados
     public DateTime Fecha {get; set;} = DateTime.Now;
     [Required(ErrorMessage = "El concepto es obligatorio.")]
     public String? Concepto { get; set; }
+    public int Cantidad {get; set;}
 
     [ForeignKey("EmpacadoId")]
     public List<EmpacadoDetalle> EmpacadoDetalle { get; set; } = new List<EmpacadoDetalle>();
