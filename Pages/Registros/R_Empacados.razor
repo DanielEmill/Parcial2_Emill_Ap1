@@ -82,6 +82,7 @@
                         </tbody>
                 </table>
             </div>
+
         <h5>Producido: </h5>
             <div class="row">
                 <div class="col-3">
@@ -98,8 +99,10 @@
                     <InputNumber class="form-control" @bind-Value="empacado.Cantidad" />
                 </div>
             </div>
+
     </div>
 <ValidationSummary/>
+</div>
 
 <!--Empacado Botones-->
 		<div class="card-footer">
@@ -110,7 +113,7 @@
 			</div>
 		</div>
 </div>
-</div>
+
 </EditForm>
 
 
@@ -174,17 +177,19 @@
     void AgregarDetalle()
     {
         var producto = productosBLL.Buscar(Detalle.ProductoId);
-        if (Detalle.Cantidad <= producto?.Existencia)
+        if (Detalle.Cantidad <= producto?.Existencia && Detalle.Cantidad > 0)
         {
             notify.ShowNotification("Agregado correctamente.");
             Detalle.Descripcion = producto!.Descripcion;
             this.empacado.EmpacadoDetalle.Add(this.Detalle);
             this.Detalle = new EmpacadoDetalle();
         }
-        else
+        else if(Detalle.Cantidad <= 0)
         {
-            notify.ShowNotification("La cantidad solicitada excede la existencia del producto.", NotificationSeverity.Error);
+            notify.ShowNotification("La cantidad no puede ser un valor invalido.", NotificationSeverity.Error);
         }
+        else
+            notify.ShowNotification("La cantidad solicitada excede la existencia del producto.", NotificationSeverity.Error);
     }
     void EliminarDetalle(int detalleIdSeleccionado)
     {

@@ -5,66 +5,65 @@
 @inject NotificationService notify
 
 <PageTitle>Registro</PageTitle>
-<EditForm Model="producto" OnInvalidSubmit="Guardar">
+<EditForm Model="producto" OnValidSubmit="Guardar">
 <DataAnnotationsValidator/>
-<!--HTML-->
-    <div class="card">
-        <div class="card-header">
-            <h2>Registro de Producto</h2>
-        </div>
-        <div class="card-body">
-<!--IdProducto-->
-            <div class="col-3">
-                <label class="text-left">IdProducto</label>
+<div class="card">
+    <div class="card-header">
+        <h2>Registro de Producto</h2>
+    </div>
+
+    <div class="card-body">
+        <!--IdProducto-->
+        <label class="text-left col-sm-2">IdProducto</label>
+        <div class="row">
+            <div class="col-2 ">
                 <InputNumber class="form-control" @bind-Value="producto.ProductoId" />
                 <button type="button" @onclick="Buscar" class="btn btn-primary"> <i class="oi oi-zoom-in"></i>Buscar</button>
             </div> 
-            <div class="row">
-                <!--Descripcion-->
-                <div class="col-3">
-                    <label class="text-left">Descripcion</label>
-                    <InputText @bind-Value="producto.Descripcion" class="form-control" placeholder="Ingrese la descripcion"/>
-                    <ValidationMessage For="@(() => producto.Descripcion)"/>
-                </div>
-                <!--Precio-->
-                <div class="col-3">
-                    <label class="text-left">Precio</label>
-                    <InputNumber @bind-Value="producto.Precio" class="form-control" placeholder="Ingrese el precio"/>
-                    <ValidationMessage For="@(() => producto.Precio)"/>
-                </div>
-            </div>
-            <div class="row">
-                <!--Costo-->
-                <div class="col-3">
-                    <label class="text-left">Costo</label>
-                    <InputNumber @bind-Value="producto.Costo" class="form-control" placeholder="Ingrese el costo"/>
-                    <ValidationMessage For="@(() => producto.Costo)"/>
-                </div>
-            </div>
-            <div class="row">
-                <!--precio-->
-                <div class="col-3">
-                    <label class="text-left">Precio</label>
-                    <InputNumber @bind-Value="producto.Precio" class="form-control" placeholder="Ingrese el Precio"/>
-                    <ValidationMessage For="@(() => producto.Precio)"/>
-                </div>
-                <div class="col-3">
-                    <label class="text-left">Existencia</label>
-                    <InputNumber @bind-Value="producto.Existencia" class="form-control" placeholder="Ingrese la Existencia"/>
-                    <ValidationMessage For="@(() => producto.Existencia)"/>
-                </div>
-            </div>
-<ValidationSummary/>
-<!--Botones-->
-            <div class="card-footer">
-                <div class="btn-group" role="group" aria-label="Basic example">
-                    <button type="button" class="btn btn-primary" @onclick="Nuevo" ><i class="oi oi-file"></i> Nuevo</button>
-                    <button type="sumi" @onclick="Guardar" class="btn btn-success mr-2"><i class=" oi oi-cloud-download"></i> Guardar</button>
-                    <button type="button" class="btn btn-danger" @onclick="Eliminar"><i class="oi oi-trash"></i>Eliminar</button>
-                </div>
+        </div>
+
+        <!--Descripcion-->
+        <label class="text-left col-sm-3">Descripcion</label>
+        <div class="col-sm-6">
+            <InputText @bind-Value="producto.Descripcion" class="form-control" placeholder="Ingrese la descripcion"/>
+            <ValidationMessage For="@(() => producto.Descripcion)"/>
+        </div>
+
+        <!--Precio-->
+        <label class="text-left col-sm-2">Precio</label>
+        <div class="col-sm-2">
+            <InputNumber @bind-Value="producto.Precio" class="form-control" placeholder="Ingrese el precio"/>
+            <ValidationMessage For="@(() => producto.Precio)"/>
+        </div>
+
+        <!--Costo-->
+        <label class="text-left">Costo</label>
+        <div class="col-2">
+            <InputNumber @bind-Value="producto.Costo" class="form-control" placeholder="Ingrese el costo"/>
+            <ValidationMessage For="@(() => producto.Costo)"/>
+        </div>
+
+        <!--Existencia-->
+        <label class="text-left">Existencia</label>
+
+        <div class="col-sm-2">
+            <InputNumber @bind-Value="producto.Existencia" class="form-control" placeholder="Ingrese la Existencia"/>
+            <ValidationMessage For="@(() => producto.Existencia)"/>
+        </div>
+
+        <ValidationSummary/>
+
+        <!--Botones-->
+        <div class="card-footer">
+            <div class="btn-group" role="group" aria-label="Basic example">
+                <button type="button" class="btn btn-primary" @onclick="Nuevo" ><i class="oi oi-file"></i> Nuevo</button>
+                <button type="Submit" class="btn btn-success mr-2"><i class=" oi oi-cloud-download"></i> Guardar</button>
+                <button type="button" class="btn btn-danger" @onclick="Eliminar"><i class="oi oi-trash"></i>Eliminar</button>
             </div>
         </div>
     </div>
+</div>
+
 </EditForm>
 
 @code {
