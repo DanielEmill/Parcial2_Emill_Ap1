@@ -18,7 +18,6 @@ public class EmpacadosBLL
             var producto = _contexto.productos.Find(detalle.ProductoId);
             if(producto!=null){
                 producto.Existencia -= detalle.Cantidad;
-
                 mixto!.Existencia += empacado.Cantidad;
                 _contexto.Entry(producto).State = EntityState.Modified;
                 _contexto.Entry(mixto).State = EntityState.Modified;

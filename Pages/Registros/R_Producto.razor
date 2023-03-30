@@ -80,6 +80,9 @@
     }
     void Buscar(){
         var ProductoAencontra = productoBLL.Buscar(producto.ProductoId);
+        if(producto.ProductoId == 6){
+            notify.ShowNotification("Lo siento, este producto no se puede editar ni manipular sin permiso del administrador.", NotificationSeverity.Error);
+        }
         if(ProductoAencontra != null){
             notify.ShowNotification("Se ha encontrado la busqueda con exito", NotificationSeverity.Info);
             this.producto  = ProductoAencontra;
@@ -101,12 +104,16 @@
         if(!validar()){
             return;
         }
-        if(productoBLL.Guardar(this.producto))
+        if(productoBLL.Guardar(this.producto) && producto.ProductoId != 6)
             notify.ShowNotification("Se ha guardado con exito.");
             this.Nuevo();
     }
     void Eliminar(){
-        if(productoBLL.Eliminar(producto.ProductoId)){
+        if(producto.ProductoId == 6){
+            notify.ShowNotification("No se puede eliminar sin permiso del administrador", NotificationSeverity.Error);
+        }
+
+        if( producto.ProductoId != 6 && productoBLL.Eliminar(producto.ProductoId) && producto.ProductoId > 0){
             notify.ShowNotification("Se ha eliminado con exito", NotificationSeverity.Info);
             Nuevo();
         }
