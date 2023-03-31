@@ -1833,11 +1833,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\DECG\\Desktop\\Parcial2_Emill_Ap1\\Parcial2_Emill_Ap1\\Parcial2_Emill.csproj",
+      "projectUniqueName": "C:\\Users\\DECG\\Desktop\\parcial\\Parcial2_Emill.csproj",
       "projectName": "Parcial2_Emill",
-      "projectPath": "C:\\Users\\DECG\\Desktop\\Parcial2_Emill_Ap1\\Parcial2_Emill_Ap1\\Parcial2_Emill.csproj",
+      "projectPath": "C:\\Users\\DECG\\Desktop\\parcial\\Parcial2_Emill.csproj",
       "packagesPath": "C:\\Users\\DECG\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\DECG\\Desktop\\Parcial2_Emill_Ap1\\Parcial2_Emill_Ap1\\obj\\",
+      "outputPath": "C:\\Users\\DECG\\Desktop\\parcial\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\DECG\\AppData\\Roaming\\NuGet\\NuGet.Config",

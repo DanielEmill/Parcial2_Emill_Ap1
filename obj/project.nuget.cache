@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "5zyl6nZf3l0LQotXiyIgVt0CmLxkVQNt1jE2bPSB8dRbPhUnZQ1zi6Wi+P18KhoEJ6XsfcC7Yu7WYYwujlWgXg==",
+  "dgSpecHash": "ZTrsZ/AVdPbfPERP1q2bHoNQs063i0iIJ/0AOhlJy/A4NhheNG/G1+uMLOmrfO4OyJE/fqBJUxJBIvSr9wKcmQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\DECG\\Desktop\\Parcial2_Emill_Ap1\\Parcial2_Emill_Ap1\\Parcial2_Emill.csproj",
+  "projectFilePath": "C:\\Users\\DECG\\Desktop\\parcial\\Parcial2_Emill.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\DECG\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\DECG\\.nuget\\packages\\libsassbuilder\\2.0.1\\libsassbuilder.2.0.1.nupkg.sha512",
