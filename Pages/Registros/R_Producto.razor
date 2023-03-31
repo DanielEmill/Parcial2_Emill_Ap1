@@ -110,7 +110,7 @@
     }
     void Eliminar(){
         if(producto.ProductoId == 6){
-            notify.ShowNotification("No se puede eliminar sin permiso del administrador", NotificationSeverity.Error);
+            notify.ShowNotification("No se puede eliminar sin permiso del administrador..", NotificationSeverity.Error);
         }
 
         if( producto.ProductoId != 6 && productoBLL.Eliminar(producto.ProductoId) && producto.ProductoId > 0){
