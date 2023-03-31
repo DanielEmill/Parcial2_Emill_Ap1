@@ -114,7 +114,7 @@
         }
 
         if( producto.ProductoId != 6 && productoBLL.Eliminar(producto.ProductoId) && producto.ProductoId > 0){
-            notify.ShowNotification("Se ha eliminado con exito", NotificationSeverity.Info);
+            notify.ShowNotification("Se ha eliminado con exito.", NotificationSeverity.Info);
             Nuevo();
         }
         else{
